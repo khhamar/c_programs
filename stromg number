@@ -1,0 +1,42 @@
+#include <stdio.h>
+int factorial(int num)
+{
+    if(num==0||num==1)
+    {
+        return 1;
+    }
+    else{
+        int fact=1;
+        for(int i=2;i<=num;++i)
+        {
+            fact*=i;
+        }
+        return fact;
+        }
+}
+int isstrong(int num)
+{
+    int originalnum=num;
+    int sum=0;
+    while(num>0)
+    {
+        int digit=num%10;
+        sum+=factorial(digit);
+        num/=10;
+    }
+    return(sum==originalnum);
+}
+int main()
+{
+    int num;
+    printf("enter a number");
+    scanf("%d",&num);
+    if(isstrong(num))
+    {
+        printf("%d is a strong number.\n",num);
+    }
+    else{
+        printf("%d is not a strong number.\n",num);
+    }
+}
+    
